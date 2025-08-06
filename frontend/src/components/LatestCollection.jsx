@@ -1,8 +1,22 @@
 import React, { useContext } from "react";
 import { ShopContext } from "../context/ShopContext";
+import Title from "./Title";
 const LatestCollection = () => {
   const { products } = useContext(ShopContext);
-  return <div>LatestCollection</div>;
+  const [latestProducts,useLatestP]
+  return (
+    <div className="my-10">
+      <div className="text-center py-8 text-3xl">
+        <Title text1={"LATEST"} text2={"COLLECTIONS"} />
+        <p className="w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+          iusto repudiandae debitis harum, enim consectetur ipsam suscipit,
+          voluptatem porro impedit dolorum ex amet eaque quam accusamus?
+          Exercitationem aperiam perferendis consequatur?
+        </p>
+      </div>
+    </div>
+  );
 };
 
 export default LatestCollection;
