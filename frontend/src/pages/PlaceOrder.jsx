@@ -65,8 +65,8 @@ const PlaceOrder = () => {
         case "cod":
           const response = await axios.post(
             backendUrl + "/api/order/place",
-            orderData,{headers:{token}}
-           
+            orderData,
+            { headers: { token } }
           );
           if (response.data.success) {
             setCartItems({});
@@ -75,11 +75,24 @@ const PlaceOrder = () => {
             toast.error(response.data.message);
           }
           break;
+        case "stripe":
+          const responseStripe = await axios.post(
+            backendUrl + "/api/order/stripe",
+            orderData,
+            { headers: { token } }
+          );
+          if (responseStripe.data.success) {
+            const { session_url } = responseStripe.data;
+            window.location.replace(session_url);
+          } else {
+            toast.error(responseStripe.data.message);
+          }
+
         default:
           break;
       }
     } catch (error) {
-      console.error("Place order error:", error);
+      console.log("Place order error:", error);
       toast.error(error.message);
     }
   };
@@ -199,7 +212,7 @@ const PlaceOrder = () => {
               ></p>
               <img className="h-5 mx-4" src={assets.stripe_logo} alt="" />
             </div>
-            <div
+            {/* <div
               onClick={() => setMethod("razorpay")}
               className="flex items-center gap-3 border p-2 px-3 cursor-pointer"
             >
@@ -209,7 +222,7 @@ const PlaceOrder = () => {
                 }`}
               ></p>
               <img className="h-5 mx-4" src={assets.razorpay_logo} alt="" />
-            </div>
+            </div> */}
             <div
               onClick={() => setMethod("cod")}
               className="flex items-center gap-3 border p-2 px-3 cursor-pointer"
