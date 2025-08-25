@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import Title from "../components/Title";
-import CartTotal from "../components/CartTotal";
+import Carttotal from "../components/Carttotal";
 import { assets } from "../assets/frontend_assets/assets";
 import { ShopContext } from "../context/ShopContext";
 import { toast } from "react-toastify";
@@ -196,7 +196,7 @@ const PlaceOrder = () => {
       </div>
       <div className="mt-8">
         <div className="mt-8 min-w-80">
-          <CartTotal />
+          <Carttotal />
         </div>
         <div className="mt-12">
           <Title text1={"PAYMENT"} text2={"METHOD"} />

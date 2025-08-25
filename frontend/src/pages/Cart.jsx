@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import Title from "../components/Title";
-import CartTotal from "../components/CartTotal";
+import Carttotal from "../components/Carttotal";
 import { assets } from "../assets/frontend_assets/assets";
 
 const Cart = () => {
@@ -92,7 +92,7 @@ const Cart = () => {
       </div>
       <div className="flex justify-end mt-20">
         <div className="w-full sm:w-[450px]">
-          <CartTotal />
+          <Carttotal />
           <div className="w-full text-end">
             <button
               onClick={() => navigate("/placeorder")}
