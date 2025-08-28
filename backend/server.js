@@ -19,13 +19,16 @@ app.use(express.json());
 app.use(
   cors({
     origin: [
-      "http://localhost:3000",
+      "http://localhost:5173",
+      "http://localhost:5174",
       "https://e-commerce-kappa-seven-25.vercel.app",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization", "token"],
     credentials: true,
   })
 );
+app.options("*", cors());
 
 //api endpoints
 
