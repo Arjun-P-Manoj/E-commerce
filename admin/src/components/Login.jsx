@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { backendUrl } from "../App";
+// import { backendUrl } from "../App";
 import { toast } from "react-toastify";
+
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const Login = ({ setToken }) => {
   const [email, setEmail] = useState("");
@@ -19,10 +21,11 @@ const Login = ({ setToken }) => {
       } else {
         toast.error(response.data.message);
       }
-    } catch (error) {
-      console.log(error);
-      toast.error(response.data.message);
-    }
+   } catch (error) {
+  console.log(error);
+  toast.error(error.response?.data?.message || "Login failed. Try again.");
+}
+
   };
 
   return (
