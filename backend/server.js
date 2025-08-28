@@ -20,7 +20,7 @@ app.use(
   cors({
     origin: "*", // <-- allow all origins
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    allowedHeaders: ["Content-Type", "Authorization","token"],
     credentials: true, // optional, needed if using cookies/auth
   })
 );
