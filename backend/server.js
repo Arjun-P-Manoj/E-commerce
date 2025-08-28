@@ -24,15 +24,6 @@ app.use(
     credentials: true, // optional, needed if using cookies/auth
   })
 );
-// app.use(
-//   cors({
-//     origin: "https://forever-frontend-peach-phi.vercel.app",
-//     methods: ["GET", "POST", "PUT", "DELETE"],
-//     credentials: true,
-//   })
-// );
-
-//api endpoints
 
 app.use("/api/user", userRouter);
 app.use("/api/product", productRouter);
