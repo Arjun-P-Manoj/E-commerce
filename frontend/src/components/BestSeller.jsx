@@ -15,10 +15,9 @@ const BestSeller = () => {
       <div className="text-center text-3xl py-8">
         <Title text1={"BEST"} text2={"SELLERS"} />
         <p className="2-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore hic
-          veniam accusamus! Ab in molestiae laborum aliquam veniam earum velit
-          maxime reprehenderit libero at optio, accusantium mollitia ducimus,
-          vel recusandae!
+          Check out our top-rated favorites loved by our customers! These
+          best-selling products are tried, tested, and highly recommended.
+          Explore now and find out why these items are flying off the shelves.
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6 ">
           {bestSeller.map((item, index) => (

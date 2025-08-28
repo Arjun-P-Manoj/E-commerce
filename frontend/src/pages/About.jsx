@@ -17,23 +17,20 @@ const About = () => {
         />
         <div className="flex flex-col text-gray-600 justify-center gap-6 md:w-2/4">
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea
-            adipisci, molestiae excepturi voluptas quia delectus modi. Ad earum
-            iure quo ut totam expedita, nisi dolorem neque, doloribus, dolorum
-            maiores minima.
+            Welcome to Forever, your one-stop destination for the latest trends
+            and timeless essentials. We strive to bring high-quality products
+            that inspire confidence, comfort, and style to your everyday life.
           </p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut officia
-            porro veritatis autem debitis impedit excepturi culpa accusamus rem
-            possimus temporibus incidunt atque accusantium, similique expedita
-            alias eum necessitatibus quod?
+            Founded with a passion for fashion and customer satisfaction, our
+            goal is to make shopping a seamless and enjoyable experience. Every
+            product is carefully selected to meet the highest standards.
           </p>
           <b className="text-gray-800">Our Mission</b>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima
-            totam hic placeat sunt natus cumque modi possimus porro magni
-            accusantium aut veniam explicabo nisi quas voluptas ipsum, amet
-            sapiente a?
+            Our mission is to provide our customers with exceptional products,
+            unbeatable quality, and outstanding service. We aim to make every
+            shopping experience memorable and fulfilling.
           </p>
         </div>
       </div>
@@ -44,32 +41,29 @@ const About = () => {
         <div className="border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5">
           <b>Quality Assurance</b>
           <p className="text-gray-600">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-            eligendi suscipit ab vitae accusantium! Molestiae illo maiores natus
-            corrupti quas quidem, amet, itaque omnis, qui inventore sit dolorum
-            adipisci nesciunt.
+            We guarantee top-notch quality for every product in our store. Each
+            item is carefully curated and tested to ensure it meets our strict
+            quality standards.
           </p>
         </div>
         <div className="border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5">
           <b>Convenience</b>
           <p className="text-gray-600">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-            eligendi suscipit ab vitae accusantium! Molestiae illo maiores natus
-            corrupti quas quidem, amet, itaque omnis, qui inventore sit dolorum
-            adipisci nesciunt.
+            Shopping with Forever is simple and hassle-free. Enjoy easy
+            navigation, fast checkout, and reliable delivery right to your
+            doorstep.
           </p>
         </div>
         <div className="border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5">
           <b>Exceptional Customer Service</b>
           <p className="text-gray-600">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-            eligendi suscipit ab vitae accusantium! Molestiae illo maiores natus
-            corrupti quas quidem, amet, itaque omnis, qui inventore sit dolorum
-            adipisci nesciunt.
+            Our dedicated support team is always here to help. We prioritize
+            your satisfaction and strive to provide quick, friendly, and
+            effective assistance.
           </p>
         </div>
       </div>
-      <NewsLetterBox/>
+      <NewsLetterBox />
     </div>
   );
 };

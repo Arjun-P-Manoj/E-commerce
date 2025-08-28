@@ -8,9 +8,10 @@ const Footer = () => {
         <div>
           <img src={assets.logo} className="mb-5 w-32" alt="" />
           <p className="w-full md:w-2/3 text-gray-600">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt
-            quod molestias rem nisi, molestiae odio nesciunt, accusamus quasi
-            ipsa cum incidunt dolore dicta repellat eos sequi id ex. Cum, quasi.
+            Forever is your go-to destination for the latest trends and timeless
+            essentials. We are committed to providing high-quality products,
+            seamless shopping, and exceptional customer service. Shop with
+            confidence and style with Forever!
           </p>
         </div>
         <div>
@@ -26,7 +27,7 @@ const Footer = () => {
           <p className="text-xl font-medium mb-5">GET IN TOUCH</p>
           <ul className="flex flex-col gap-1 text-gray-600">
             <li>+91 94949-94949</li>
-            <li>contact@foreveryou.com</li>
+            <li>contact@forever.com</li>
           </ul>
         </div>
       </div>
