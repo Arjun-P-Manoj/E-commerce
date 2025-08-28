@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { backendUrl, currency } from "../App";
+import { currency } from "../App";
 import axios from "axios";
 import { toast } from "react-toastify";
+
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const List = ({ token }) => {
   const [list, setList] = useState([]);
@@ -34,7 +36,7 @@ const List = ({ token }) => {
         toast.error(response.data.message);
       }
     } catch (error) {
-      consolelog(error);
+      console.log(error);
       toast.error(error.message);
     }
   };
