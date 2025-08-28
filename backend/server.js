@@ -8,60 +8,39 @@ import productRouter from "./routes/productRoute.js";
 import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
 
-// App Config
+//App Config
 const app = express();
 const port = process.env.PORT || 4000;
-
-// Connect DB + Cloudinary
 connectDB();
 connectCloudinary();
 
-// Allowed origins
-const allowedOrigins = [
-  "http://localhost:5173",
-  "http://localhost:5174",
-  "https://e-commerce-kappa-seven-25.vercel.app"
-];
-
-// CORS middleware
+//middleware
+app.use(express.json());
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
-    allowedHeaders: [
-      "Content-Type",
-      "Authorization",
-      "token",
-      "X-Requested-With"
-    ]
+    origin: "*", // <-- allow all origins
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true, // optional, needed if using cookies/auth
   })
 );
+// app.use(
+//   cors({
+//     origin: "https://forever-frontend-peach-phi.vercel.app",
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     credentials: true,
+//   })
+// );
 
-// Handle preflight requests
-app.options("*", cors());
+//api endpoints
 
-// Middleware
-app.use(express.json());
-
-// API endpoints
 app.use("/api/user", userRouter);
 app.use("/api/product", productRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
 
-// Root check
 app.get("/", (req, res) => {
-  res.send("API WORKING ✅");
+  res.send("API WORKING");
 });
 
-// Start server (only for local dev, not on Vercel)
-app.listen(port, () => console.log("Server Started on Port: " + port));
-
-export default app; // required for Vercel
+app.listen(port, () => console.log("Server Started on Port:" + port));
