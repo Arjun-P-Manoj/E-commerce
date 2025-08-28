@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import Title from "../components/Title";
-import Carttotal from "../components/Carttotal";
 import { assets } from "../assets/frontend_assets/assets";
 import { ShopContext } from "../context/ShopContext";
 import { toast } from "react-toastify";
 import axios from "axios";
+import CartTotal from "../components/CartTotal"
 
 const PlaceOrder = () => {
   const [method, setMethod] = useState("cod");
@@ -196,7 +196,7 @@ const PlaceOrder = () => {
       </div>
       <div className="mt-8">
         <div className="mt-8 min-w-80">
-          <Carttotal />
+          <CartTotal />
         </div>
         <div className="mt-12">
           <Title text1={"PAYMENT"} text2={"METHOD"} />
