@@ -16,10 +16,12 @@ connectCloudinary();
 
 //middleware
 app.use(express.json());
-// app.use(cors());
 app.use(
   cors({
-    origin: "https://forever-frontend-peach-phi.vercel.app",
+    origin: [
+      "http://localhost:3000",
+      "https://e-commerce-kappa-seven-25.vercel.app",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
