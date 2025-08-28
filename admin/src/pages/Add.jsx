@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { assets } from "../assets/admin_assets/assets.js";
 import axios from "axios";
-import { backendUrl } from "../App.jsx";
+// import { backendUrl } from "../App.jsx";
 import { toast } from "react-toastify";
+
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const Add = ({ token }) => {
   const [image1, setImage1] = useState(false);
@@ -55,8 +57,8 @@ const Add = ({ token }) => {
         console.log("Failure");
       }
     } catch (error) {
-      console.log(error);
-      toast.error(error.message);
+      console.error(error);
+      toast.error(error.response?.data?.message || error.message);
     }
   };
 
@@ -135,6 +137,7 @@ const Add = ({ token }) => {
         <div className="w-full">
           <p className="mb-2 ">Product Description</p>
           <textarea
+            value={description}
             onChange={(e) => setDescription(e.target.value)}
             className="w-full max-w-[500px] px-3 py-2"
             placeholder="Write Content Here"
