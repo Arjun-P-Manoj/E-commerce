@@ -8,30 +8,44 @@ import productRouter from "./routes/productRoute.js";
 import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
 
-//App Config
+// App Config
 const app = express();
 const port = process.env.PORT || 4000;
 connectDB();
 connectCloudinary();
 
-//middleware
+// CORS configuration
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:5174",
+  "https://e-commerce-kappa-seven-25.vercel.app"
+];
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
+  allowedHeaders: [
+    "Content-Type",
+    "Authorization",
+    "token",
+    "X-Requested-With"
+  ],
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
+// Middleware
 app.use(express.json());
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173",
-      "http://localhost:5174",
-      "https://e-commerce-kappa-seven-25.vercel.app",
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization", "token"],
-    credentials: true,
-  })
-);
-app.options("*", cors());
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions)); // handle preflight requests
 
-//api endpoints
-
+// API endpoints
 app.use("/api/user", userRouter);
 app.use("/api/product", productRouter);
 app.use("/api/cart", cartRouter);
@@ -41,4 +55,6 @@ app.get("/", (req, res) => {
   res.send("API WORKING");
 });
 
-app.listen(port, () => console.log("Server Started on Port:" + port));
+app.listen(port, () =>
+  console.log(`Server Started on Port: ${port}`)
+);
