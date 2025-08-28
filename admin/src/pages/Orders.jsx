@@ -2,9 +2,11 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
-import { backendUrl, currency } from "../App";
+import { currency } from "../App";
 import { toast } from "react-toastify";
 import { assets } from "../assets/admin_assets/assets";
+
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const Orders = ({ token }) => {
   const [orders, setOrders] = useState([]);
@@ -19,12 +21,12 @@ const Orders = ({ token }) => {
         { headers: { token } }
       );
       if (response.data.success) {
-        setOrders(response.data.orders);
+        setOrders(response.data.orders.reverse());
       } else {
         toast.error(response.data.message);
       }
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error.response?.data?.message || error.message);
     }
   };
 
@@ -42,8 +44,8 @@ const Orders = ({ token }) => {
         await fetchAllOrders();
       }
     } catch (error) {
-      console.log(error);
-      toast.error(response.data.message);
+      console.error(error);
+      toast.error(error.response?.data?.message || error.message);
     }
   };
 
