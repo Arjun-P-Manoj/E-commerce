@@ -19,7 +19,7 @@ connectCloudinary();
 // Allowed frontend domains
 const allowedOrigins = [
   "https://e-commerce-kappa-seven-25.vercel.app",  // Customer frontend
-  "https://vercel.com/arjun-p-manojs-projects/forever-ecommerce", // Admin frontend
+  "https://forever-ecommerce-lyart.vercel.app", // Admin frontend
   "http://localhost:5173", // Local dev customer
   "http://localhost:5174"  // Local dev admin
 ];
